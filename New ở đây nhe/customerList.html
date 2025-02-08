@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý khách hàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-6 font-sans">
+    <div class="max-w-6xl mx-auto bg-white shadow-lg rounded-lg p-6">
+        <div class="flex justify-between items-center mb-8">
+            <h1 class="text-4xl font-bold text-[#85461F]">Danh sách khách hàng</h1>
+            <button class="flex items-center bg-[#F8BC3B] text-black px-4 py-2 rounded-full border border-black hover:bg-[#85461F] hover:text-white">
+                <img src="img/add_circle.png" alt="Create" class="w-5 h-5 mr-2">
+                Tạo khách hàng
+            </button>
+        </div>
+
+        <div class="flex gap-4 mb-6">
+            <button class="flex items-center border border-black px-4 py-2 rounded-full bg-[#F8BC3B]/25 hover:bg-yellow-300">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 mr-2">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                Thêm điều kiện lọc
+            </button>
+            <div class="relative flex-1">
+                <input type="text" placeholder="Tìm kiếm" class="w-full border border-black bg-[#F8BC3B]/25 px-4 py-2 rounded-full pl-10">
+                <img src="img/Search.png" alt="Search" class="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2">
+            </div>
+        </div>
+
+        <table class="w-full border-collapse border border-gray-200 rounded-lg overflow-hidden">
+            <thead>
+                <tr class="bg-[#38312F] text-white">
+                    <th class="p-3"><input type="checkbox" id="select-all"></th>
+                    <th class="p-3">Mã khách hàng</th>
+                    <th class="p-3">Khách hàng</th>
+                    <th class="p-3">Địa điểm</th>
+                    <th class="p-3">Tổng đơn hàng</th>
+                    <th class="p-3">Tổng tiền đã mua</th>
+                    <th class="p-3">Hạng thành viên</th>
+                    <th class="p-3">Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="border-b border-black hover:bg-gray-50 text-center">
+                    <td class="p-3"><input type="checkbox" class="row-checkbox"></td>
+                    <td class="p-3">10000425</td>
+                    <td class="p-3">Nguyễn Văn A</td>
+                    <td class="p-3">Vietnam</td>
+                    <td class="p-3">10</td>
+                    <td class="p-3">999,000đ</td>
+                    <td class="p-3">Vàng</td>
+                    <td class="p-3 flex justify-center space-x-2">
+                        <button><img src="img/eye.png" alt="View" class="w-5 h-5"></button>
+                        <button><img src="img/pen.png" alt="Edit" class="w-5 h-5"></button>
+                        <button><img src="img/trash.png" alt="Delete" class="w-5 h-5"></button>
+                    </td>
+                </tr>
+                <tr class="border-b border-black hover:bg-gray-50 text-center">
+                    <td class="p-3"><input type="checkbox" class="row-checkbox"></td>
+                    <td class="p-3">10000425</td>
+                    <td class="p-3">Nguyễn Văn A</td>
+                    <td class="p-3">Vietnam</td>
+                    <td class="p-3">10</td>
+                    <td class="p-3">999,000đ</td>
+                    <td class="p-3">Vàng</td>
+                    <td class="p-3 flex justify-center space-x-2">
+                        <button><img src="img/eye.png" alt="View" class="w-5 h-5"></button>
+                        <button><img src="img/pen.png" alt="Edit" class="w-5 h-5"></button>
+                        <button><img src="img/trash.png" alt="Delete" class="w-5 h-5"></button>
+                    </td>
+                </tr>
+                <tr class="border-b border-black hover:bg-gray-50 text-center">
+                    <td class="p-3"><input type="checkbox" class="row-checkbox"></td>
+                    <td class="p-3">10000425</td>
+                    <td class="p-3">Nguyễn Văn A</td>
+                    <td class="p-3">Vietnam</td>
+                    <td class="p-3">10</td>
+                    <td class="p-3">999,000đ</td>
+                    <td class="p-3">Vàng</td>
+                    <td class="p-3 flex justify-center space-x-2">
+                        <button><img src="img/eye.png" alt="View" class="w-5 h-5"></button>
+                        <button><img src="img/pen.png" alt="Edit" class="w-5 h-5"></button>
+                        <button><img src="img/trash.png" alt="Delete" class="w-5 h-5"></button>
+                    </td>
+                </tr>
+                <tr class="border-b border-black hover:bg-gray-50 text-center">
+                    <td class="p-3"><input type="checkbox" class="row-checkbox"></td>
+                    <td class="p-3">10000425</td>
+                    <td class="p-3">Nguyễn Văn A</td>
+                    <td class="p-3">Vietnam</td>
+                    <td class="p-3">10</td>
+                    <td class="p-3">999,000đ</td>
+                    <td class="p-3">Vàng</td>
+                    <td class="p-3 flex justify-center space-x-2">
+                        <button><img src="img/eye.png" alt="View" class="w-5 h-5"></button>
+                        <button><img src="img/pen.png" alt="Edit" class="w-5 h-5"></button>
+                        <button><img src="img/trash.png" alt="Delete" class="w-5 h-5"></button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            document.getElementById('select-all').addEventListener('change', function () {
+                document.querySelectorAll('.row-checkbox').forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
+            });
+        </script>
+
+        <div class="flex justify-between items-center mt-4">
+            <p class="text-gray-600">Hiển thị 4</p>
+            <div class="flex gap-2">
+                <button class="text-gray-600 hover:text-black">&lt;</button>
+                <button class="text-gray-600 hover:text-black">1</button>
+                <button class="text-gray-600 hover:text-black">2</button>
+                <button class="text-gray-600 hover:text-black">3</button>
+                <button class="text-gray-600 hover:text-black">4</button>
+                <button class="text-gray-600 hover:text-black">...</button>
+                <button class="text-gray-600 hover:text-black">&gt;</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

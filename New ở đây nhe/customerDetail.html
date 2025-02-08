@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin khách hàng</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+    <h1 class="text-4xl font-bold text-[#85461F] ml-36 mt-6">Thông tin khách hàng</h1>
+    
+    <div class="max-w-7xl mx-auto mt-6 p-6 bg-white shadow-md rounded-lg">
+        <div class="flex flex-col md:flex-row gap-6">
+            <!-- Customer Card -->
+            <div class="flex-1 bg-[#F2E8DA] p-6 rounded-lg shadow-lg">
+                <div class="flex items-center gap-4">
+                    <img src="img/avatar.png" alt="Avatar" class="w-24 h-24 rounded-full">
+                    <div>
+                        <h3 class="text-lg font-bold">Nguyễn Văn A</h3>
+                        <table class="mt-2 w-full">
+                            <tr><td class="font-semibold">Mã khách hàng:</td><td>10000425</td></tr>
+                            <tr><td class="font-semibold">Giới tính:</td><td>Nam</td></tr>
+                            <tr><td class="font-semibold">Số điện thoại:</td><td>0839445689</td></tr>
+                            <tr><td class="font-semibold">Ngày sinh:</td><td>28/09/2004</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="flex justify-between mt-4 border-t pt-4 text-center border-black/25">
+                    <div><p class="text-sm">Đơn hàng gần nhất</p><span class="font-bold">---</span></div>
+                    <div><p class="text-sm">Tổng tiền đã mua</p><span class="font-bold">---</span></div>
+                    <div><p class="text-sm">Tổng đơn hàng</p><span class="font-bold">---</span></div>
+                </div>
+            </div>
+            
+            <!-- Contact Card -->
+            <div class="flex-1 bg-[#F2E8DA] p-6 rounded-lg shadow-lg">
+                <h3 class="text-lg font-bold border-b pb-2 flex items-center border-black/25">Thông tin liên hệ <img src="img/pencil.png" class="w-5 h-5 ml-auto"></h3>
+                <p class="mt-2"><a href="mailto:nguyenvana@gmail.com" class="text-blue-500 hover:underline">nguyenvana@gmail.com</a></p>
+                <p class="mt-2">Không đồng ý nhận email quảng cáo</p>
+                <p class="mt-2">Chưa có tài khoản</p>
+                <h3 class="text-lg font-bold border-b pb-2 flex items-center mt-4 border-black/25">Địa chỉ mặc định <img src="img/pencil.png" class="w-5 h-5 ml-auto"></h3>
+                <p class="mt-2">Nguyễn Văn A</p>
+                <p class="mt-2">Vietnam</p>
+                <p class="mt-2">0839445689</p>
+                <a href="#" class="text-blue-500 text-sm hover:underline mt-2">Chỉnh sửa sổ địa chỉ</a>
+            </div>
+        </div>
+        
+        <!-- Orders Section -->
+        <div class="mt-6 bg-[#F2E8DA] p-6 rounded-lg shadow-lg">
+            <div class="flex justify-between items-center">
+                <h3 class="text-lg font-bold">Đơn hàng</h3>
+                <a href="#" class="text-blue-500 text-sm hover:underline">Xem tất cả</a>
+            </div>
+            <div class="flex flex-col items-center text-center mt-4">
+                <img src="img/Bag 03.png" alt="Bag" class="w-16">
+                <p class="text-gray-600">Khách hàng này hiện không có đơn hàng.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

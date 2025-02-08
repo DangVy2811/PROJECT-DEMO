@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl bg-white shadow-lg rounded-xl p-6">
+        <div class="p-6">
+            <h1 class="text-3xl font-bold mb-4">FAQs</h1>
+            <p class="text-gray-600 mb-6">Hỏi đáp thường gặp khi mua hàng tại website SARU</p>
+            
+            <div class="space-y-4">
+                <div class="border-b border-gray-300 pb-2">
+                    <div class="flex justify-between items-center cursor-pointer py-2 text-lg font-semibold text-gray-700" onclick="toggleFAQ(this)">
+                        <span>Chính sách bảo hành</span>
+                        <span class="icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer hidden text-gray-600 text-sm transition-all duration-300 ease-in-out overflow-hidden">Chúng tôi cam kết cung cấp sản phẩm rượu Tây Bắc chất lượng cao. Nếu có lỗi kỹ thuật hoặc không đúng mô tả, bạn có thể yêu cầu bảo hành trong 7 ngày kể từ ngày nhận hàng. Vui lòng liên hệ kèm hình ảnh/video.</div>
+                </div>
+                
+                <div class="border-b border-gray-300 pb-2">
+                    <div class="flex justify-between items-center cursor-pointer py-2 text-lg font-semibold text-gray-700" onclick="toggleFAQ(this)">
+                        <span>Chính sách hoàn trả</span>
+                        <span class="icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer hidden text-gray-600 text-sm transition-all duration-300 ease-in-out overflow-hidden">Bạn có thể hoàn trả sản phẩm chưa mở nắp trong vòng 7 ngày. Chi phí vận chuyển sẽ do khách hàng chịu trừ khi sản phẩm bị lỗi. Vui lòng liên hệ để được hướng dẫn.</div>
+                </div>
+                
+                <div class="border-b border-gray-300 pb-2">
+                    <div class="flex justify-between items-center cursor-pointer py-2 text-lg font-semibold text-gray-700" onclick="toggleFAQ(this)">
+                        <span>Chính sách giao hàng</span>
+                        <span class="icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer hidden text-gray-600 text-sm transition-all duration-300 ease-in-out overflow-hidden">Đơn hàng sẽ được giao trong 2-5 ngày tùy địa điểm. Phí giao hàng hiển thị trước khi thanh toán. Nếu có sự cố giao hàng, chúng tôi sẽ thông báo và hỗ trợ kịp thời.</div>
+                </div>
+                
+                <div class="border-b border-gray-300 pb-2">
+                    <div class="flex justify-between items-center cursor-pointer py-2 text-lg font-semibold text-gray-700" onclick="toggleFAQ(this)">
+                        <span>Chính sách thanh toán</span>
+                        <span class="icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer hidden text-gray-600 text-sm transition-all duration-300 ease-in-out overflow-hidden">Chúng tôi hỗ trợ thanh toán qua chuyển khoản và COD trong nội thành. Mọi giao dịch đều được bảo mật bằng hệ thống mã hóa SSL.</div>
+                </div>
+                
+                <div class="border-b border-gray-300 pb-2">
+                    <div class="flex justify-between items-center cursor-pointer py-2 text-lg font-semibold text-gray-700" onclick="toggleFAQ(this)">
+                        <span>Chính sách khuyến mãi</span>
+                        <span class="icon text-2xl">+</span>
+                    </div>
+                    <div class="faq-answer hidden text-gray-600 text-sm transition-all duration-300 ease-in-out overflow-hidden">Chúng tôi cung cấp nhiều ưu đãi giảm giá và mã giảm giá vào các dịp đặc biệt. Khuyến mãi có thể có điều kiện đi kèm và không áp dụng đồng thời.</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex justify-center items-center">
+            <img src="img/Background.png" alt="Eco-friendly image" class="rounded-xl shadow-md max-w-full">
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            let answer = element.nextElementSibling;
+            let icon = element.querySelector('.icon');
+            
+            if (answer.classList.contains('hidden')) {
+                answer.classList.remove('hidden');
+                answer.style.height = answer.scrollHeight + "px";
+                icon.textContent = '-';
+            } else {
+                answer.style.height = '0px';
+                setTimeout(() => answer.classList.add('hidden'), 300);
+                icon.textContent = '+';
+            }
+        }
+    </script>
+</body>
+</html>
