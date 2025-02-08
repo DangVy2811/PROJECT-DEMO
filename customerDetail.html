@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thông tin khách hàng</title>
+    <style>
+        h1 {
+            color: #85461F;
+            margin-left: 140px;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .customer-card, .contact-card {
+            flex: 1;
+            background-color: #F2E8DA;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .customer-card img {
+            width: fit-content;
+            height: 90px;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+        .customer-info {
+            flex: 1;
+        }
+        .customer-info h3 {
+            font-size: 20px;
+            margin: 0;
+            font-weight: bold;
+        }
+        .customer-info table {
+            width: 100%;
+            margin-top: 10px;
+            border-collapse: collapse;
+        }
+        .customer-info table td {
+            padding: 5px 0;
+            font-size: 16px;
+        }
+        .customer-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+            border-top: 1px solid #8d8d8d;
+            padding-top: 10px;
+        }
+        .customer-stats div {
+            text-align: center;
+            flex: 1;
+        }
+        .customer-stats p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #000000;
+        }
+        .customer-stats span {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .contact-card h3 {
+            font-size: 20px;
+            margin-top: 3px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #0000005f;
+            padding-bottom: 5px;
+        }
+        .contact-card p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        .contact-card h3 img {
+            margin-left: auto;
+            width: 20px;
+            height: 20px;
+        }
+        
+        .contact-card a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .contact-card a:hover {
+            text-decoration: underline;
+        }
+        .contact-card .edit-link {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+            float: left;
+        }
+        .contact-card h3 img {
+            margin-left: auto;
+            width: 20px;
+            height: 20px;
+        }
+        .orders {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #F2E8DA;
+            border-radius: 12px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .orders-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .orders-header h3 {
+            font-size: 20px;
+            margin-left: 20px;
+            margin-top: 15px;
+        }
+        .orders-header .edit-link {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .orders-header .edit-link:hover {
+            text-decoration: underline;
+        }
+        .order-card {
+            text-align: center;
+            padding: 40px;
+            margin-top: 10px;
+            background-color: #F2E8DA;
+        }
+        .orders img{
+            width: 10%;
+            height: fit-content;
+        }
+        .order-card p {
+            font-size: 16px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thông tin khách hàng</h1>
+    <div class="container">
+        <div class="info-section">
+            <div class="customer-card">
+                <div style="display: flex; align-items: center;">
+                    <img src="img_cusDetail/Screenshot 2025-01-27 210353.png" alt="Avatar">
+                    <div class="customer-info">
+                        <h3>Nguyễn Văn A</h3>
+                        <table>
+                            <tr>
+                                <td><strong>Mã khách hàng:</strong></td>
+                                <td>10000425</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Giới tính:</strong></td>
+                                <td>Nam</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Số điện thoại:</strong></td>
+                                <td>0839445689</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Ngày sinh:</strong></td>
+                                <td>28/09/2004</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="customer-stats">
+                    <div>
+                        <p>Đơn hàng gần nhất</p>
+                        <span>---</span>
+                    </div>
+                    <div>
+                        <p>Tổng tiền đã mua</p>
+                        <span>---</span>
+                    </div>
+                    <div>
+                        <p>Tổng đơn hàng</p>
+                        <span>---</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-card">
+                <h3>Thông tin liên hệ <img src="img_cusDetail/pen (1).png" alt="Icon"></h3>
+                <p><a href="mailto:nguyenvana@gmail.com">nguyenvana@gmail.com</a></p>
+                <p>Không đồng ý nhận email quảng cáo</p>
+                <p>Chưa có tài khoản</p>
+                <h3>Địa chỉ mặc định <img src="img_cusDetail/pen (1).png" alt="Icon"></h3>
+                <p>Nguyễn Văn A</p>
+                <p>Vietnam</p>
+                <p>0839445689</p>
+                <a href="#" class="edit-link">Chỉnh sửa số địa chỉ</a>
+            </div>
+        </div>
+        <div class="orders">
+            <div class="orders-header">
+                <h3>Đơn hàng</h3>
+                <a href="#" class="edit-link">Xem tất cả</a>
+            </div>
+            <div class="order-card">
+                <img src="img_cusDetail/Bag 03.png" alt="Bag" style="margin-bottom: 10px;">
+                </svg>
+                <p>Khách hàng này hiện không có đơn hàng.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

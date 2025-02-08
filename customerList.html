@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management</title>
+    <style>
+        body {
+            background-color: #f9fafb;
+            padding: 24px;
+            font-family: 'Inter', sans-serif;
+        }
+        .container {
+            max-width: 1024px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            padding: 24px;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .header h1 {
+            font-size: 28px;
+            font-weight: bold;
+            color: #85461F;
+        }
+        .header button {
+            background-color: #F8BC3B;
+            color: #000000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            border: 1px solid #000000;
+        }
+        .header button:hover {
+            color: #ffffff;
+            background-color: #85461F;
+        }
+        button img {
+            vertical-align: middle;
+        }
+
+        button {
+            display: inline-flex;
+            align-items: center;
+            background-color: #F8BC3B; /* Màu nút */
+            color: #000000;
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            color: #ffffff;
+            background-color: #85461F;
+        }
+
+        input {
+            padding-right: 40px; /* Để có khoảng trống cho icon */
+        }
+
+        tbody tr {
+            border-bottom: 2px solid #000000; /* Đường ngăn cách màu xám nhạt */
+        }
+
+        tbody tr:last-child {
+            border-bottom: none; /* Loại bỏ đường ngăn cách dưới cùng */
+        }
+
+        .filters {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .filters button {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d1d5db;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background-color: rgba(255, 224, 157, 0.548);
+            border: 1px solid #000000;
+            cursor: pointer;
+        }
+
+        .filters input {
+            flex: 1;
+            width: 88%;
+            border: 1px solid #000000;
+            background-color: rgba(255, 224, 157, 0.548);
+            padding: 8px 16px;
+            border-radius: 20px;
+            height: 20px; /* Đảm bảo chiều cao đồng nhất */
+            padding-left: 40px; /* Tạo khoảng trống cho icon */
+            font-size: 14px; /* Cỡ chữ phù hợp */
+        }
+
+        .filters div {
+            position: relative;
+            flex: 1;
+        }
+
+        .filters div img {
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            pointer-events: none; /* Để không cản trở việc nhập liệu */
+        }
+        table {
+            margin-top: 30px;
+            width: 100%;
+            border-collapse: collapse;
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Làm mờ đường viền */
+            border-radius: 20px; /* Bo góc cho bảng */
+            overflow: hidden; /* Đảm bảo góc bo không bị tràn */
+            background-color: #ffffff; /* Màu nền đỏ nhạt */
+        }   
+        th, td {
+            padding: 12px;
+            text-align: center; /* Căn giữa ngang */
+            vertical-align: middle; /* Căn giữa dọc */
+            font-size: 15px;
+        }
+
+        td:nth-child(3), /* Cột "Category" */
+        td:nth-child(4), /* Cột "Người viết" */
+        td:nth-child(5) { /* Cột "Ngày hiển thị" */
+            text-align: center; /* Căn giữa ngang */
+            vertical-align: middle; /* Căn giữa dọc */
+        }
+
+        th {
+            height: 40px;
+            color: #ffffff;
+            background-color: #38312F;
+        }
+        tr:hover {
+            background-color: #f9fafb;
+        }
+        .actions button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #6b7280;
+        }
+        .actions button:hover {
+            color: #374151;
+        }
+        .pagination {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 16px;
+        }
+        .pagination p {
+            color: #6b7280;
+        }
+        .pagination .buttons {
+            display: flex;
+            gap: 8px;
+        }
+        .pagination button {
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+        }
+        .pagination button:hover {
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Danh sách khách hàng</h1>
+            <button>
+                <img src="img_blog/add_circle.png" alt="Create" style="width: 20px; height: 20px; margin-right: 8px;">
+                Tạo khách hàng
+            </button>            
+        </div>
+
+        <div class="filters">
+            <button>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="width: 20px; height: 20px; margin-right: 8px;">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+                Thêm điều kiện lọc
+            </button>
+            <div style="position: relative; flex: 1;">
+                <input type="text" placeholder="Tìm kiếm">
+                <img src="img_blog/Search.png" alt="Search" style="width: 20px; height: 20px; position: absolute; top: 50%; transform: translateY(-50%); right: 96%;">
+            </div>            
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th><input type="checkbox" id="select-all"></th>
+                    <th>Mã khách hàng</th>
+                    <th>Khách hàng</th>
+                    <th>Địa điểm</th>
+                    <th>Tổng đơn hàng</th>
+                    <th>Tổng tiền đã mua</th>
+                    <th>Hạng thành viên</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox"></td>
+                    <td>10000425</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Vietnam</td>
+                    <td>10</td>
+                    <td>999,000đ</td>
+                    <td>Vàng</td>
+                    <td class="actions">
+                        <!-- Button 1 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/eye.png" alt="View" style="width: 20px; height: 20px;">
+                        </button>
+                        <!-- Button 2 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/pen.png" alt="Edit" style="width: 20px; height: 20px;">
+                        </button>
+                        <!-- Button 3 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/trash.png" alt="Delete" style="width: 20px; height: 20px;">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox"></td>
+                    <td>10000425</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Vietnam</td>
+                    <td>10</td>
+                    <td>999,000đ</td>
+                    <td>Vàng</td>
+                    <td class="actions">
+                        <!-- Button 1 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/eye.png" alt="View" style="width: 20px; height: 20px;">
+                        </button>
+                        <!-- Button 2 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/pen.png" alt="Edit" style="width: 20px; height: 20px;">
+                        </button>
+                        <!-- Button 3 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/trash.png" alt="Delete" style="width: 20px; height: 20px;">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox"></td>
+                    <td>10000425</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Vietnam</td>
+                    <td>10</td>
+                    <td>999,000đ</td>
+                    <td>Vàng</td>
+                    <td class="actions">
+                        <!-- Button 1 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/eye.png" alt="View" style="width: 20px; height: 20px;">
+                        </button>
+                        <!-- Button 2 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/pen.png" alt="Edit" style="width: 20px; height: 20px;">
+                        </button>
+                        <!-- Button 3 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/trash.png" alt="Delete" style="width: 20px; height: 20px;">
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" class="row-checkbox"></td>
+                    <td>10000425</td>
+                    <td>Nguyễn Văn A</td>
+                    <td>Vietnam</td>
+                    <td>10</td>
+                    <td>999,000đ</td>
+                    <td>Vàng</td>
+                    <td class="actions">
+                        <!-- Button 1 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/eye.png" alt="View" style="width: 20px; height: 20px;">
+                        </button>
+                        <!-- Button 2 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/pen.png" alt="Edit" style="width: 20px; height: 20px;">
+                        </button>
+                        <!-- Button 3 -->
+                        <button onclick="window.location.href='###';">
+                            <img src="img_customer/trash.png" alt="Delete" style="width: 20px; height: 20px;">
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <script>
+            // Lấy checkbox "Select All" và tất cả các checkbox hàng
+            const selectAllCheckbox = document.getElementById('select-all');
+            const rowCheckboxes = document.querySelectorAll('.row-checkbox');
+        
+            // Thêm sự kiện click cho checkbox "Select All"
+            selectAllCheckbox.addEventListener('change', function () {
+                rowCheckboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked; // Cập nhật trạng thái của tất cả checkbox con
+                });
+            });
+        </script>
+
+        <div class="pagination">
+            <p>Hiển thị 4</p>
+            <div class="buttons">
+                <button>&lt;</button>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button>...</button>
+                <button>&gt;</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
